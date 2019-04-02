@@ -6,8 +6,8 @@ This problem provides practice at:
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Abi Clayton.
+"""  # Done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 
 def main():
@@ -32,11 +32,27 @@ def run_test_zero_changer():
     print('  Actual:  ', test1)
 
     # -------------------------------------------------------------------------
-    # TODO: 2. Write at least 2 additional tests for the
+    # Done: 2. Write at least 2 additional tests for the
     #    zero_changer
     # function.  Try to choose some unexpected things like empty lists
     # or an empty tuple, or a list with no zeros, etc.
     # -------------------------------------------------------------------------
+
+    # Test 2:
+    test2 = ([3, 5, 7], [], [9, 7, 12, 15], [0, 2, 5])
+    expected2 = ([3, 5, 7], [], [9, 7, 12, 15], [1, 2, 5])
+    zero_changer(test2)
+    print()
+    print('  Expected:', expected2)
+    print('  Actual:  ', test2)
+
+    # Test 3:
+    test3 = ([0, 5, 3, 9], [4, 5, 6, 0], [1, 0, 0], [5, 4, 9])
+    expected3 = ([1, 5, 3, 9], [4, 5, 6, 2], [1, 3, 4], [5, 4, 9])
+    zero_changer(test3)
+    print()
+    print('  Expected:', expected3)
+    print('  Actual:  ', test3)
 
 
 def zero_changer(tuple_of_lists):
@@ -64,7 +80,7 @@ def zero_changer(tuple_of_lists):
       :type tuple_of_lists: tuple of list[int]
     """
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # Done: 3. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # -------------------------------------------------------------------------
     # -------------------------------------------------------------------------
@@ -72,6 +88,15 @@ def zero_changer(tuple_of_lists):
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:  10 minutes.
     # -------------------------------------------------------------------------
+
+    num0 = 1
+    for j in range(len(tuple_of_lists)):
+        sublist = tuple_of_lists[j]
+        for k in range(len(sublist)):
+            if sublist[k] == 0:
+                sublist[k] = num0
+                num0 = num0 + 1
+
 
 
 # -----------------------------------------------------------------------------
