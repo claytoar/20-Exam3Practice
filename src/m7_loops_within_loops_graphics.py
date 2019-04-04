@@ -6,8 +6,8 @@ This problem provides practice at:
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Abi Clayton.
+"""  # Done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ###############################################################################
 # Students:
@@ -90,7 +90,7 @@ def hourglass(window, n, point, radius, color):
     a color that rosegraphics understands.
     """
     # -------------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # Done: 2. Implement and test this function.
     #       We provided some tests for you (above).
     # -------------------------------------------------------------------------
     ###########################################################################
@@ -102,6 +102,46 @@ def hourglass(window, n, point, radius, color):
     #    DIFFICULTY:      8
     #    TIME ESTIMATE:  25 minutes (warning: this problem is challenging)
     # -------------------------------------------------------------------------
+
+    x = point.x
+    y = point.y
+    original_x = point.x
+    original_y = point.y
+
+
+    for j in range(n):
+        for k in range(j + 1):
+            circle = rg.Circle(rg.Point(x, y), radius)
+            circle.fill_color = color
+            line = rg.Line(rg.Point(x - radius, y), rg.Point(x + radius, y))
+            circle.attach_to(window)
+            line.attach_to(window)
+            window.render(0.1)
+
+            x = x + (2 * radius)
+
+        x = original_x - (((j + 1) / 2) * (2 * radius))
+        y = original_y - ((j + 1) * (3**(1 / 2) * radius))
+
+    x = point.x
+    y = point.y
+
+    for j in range(n):
+        for k in range(j + 1):
+            circle = rg.Circle(rg.Point(x, y), radius)
+            circle.fill_color = color
+            line = rg.Line(rg.Point(x - radius, y), rg.Point(x + radius, y))
+            circle.attach_to(window)
+            line.attach_to(window)
+            window.render(0.1)
+
+            x = x + (2 * radius)
+
+        x = original_x - (((j + 1) / 2) * (2 * radius))
+        y = original_y + ((j + 1) * (3 ** (1 / 2) * radius))
+
+
+
 
 
 def run_test_many_hourglasses():
